@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.core.urlresolvers import resolve
 from lists.views import home_page
 from django.http import HttpRequest
+from django.template.loader import render_to_string
 
 class HomePageTest(TestCase):
     
@@ -16,9 +17,15 @@ class HomePageTest(TestCase):
 				      #we assert that the .content of the response - which is the HTML we are
                                       #sending to the user has certain properties
 
-        self.assertTrue(response.content.startswith(b'<html>')) #we want it to start with an <html> tag which 
+        expected_html = render_to_string('home.html')
+
+        self.assertEqual(response.content.decode(), expected_html) # decode converts response.content bytes into 
+                                                                   # python unicode string, (comparing strings w/
+                                                                   # strings instead of comparing bytes
+
+        #self.assertTrue(response.content.startswith(b'<html>')) #we want it to start with an <html> tag which 
                                                                 #gets closed at the end. notice raw bytes
 
-        self.assertIn(b'<title>To-Do lists</title>', response.content) #we want a title tag somewhere in the middle
+        #self.assertIn(b'<title>To-Do Lists</title>', response.content) #we want a title tag somewhere in the middle
 								       #with the words to-do list
-        self.assertTrue(response.content.endswith(b'</html>'))
+        #self.assertTrue(response.content.strip().endswith(b'</html>'))
