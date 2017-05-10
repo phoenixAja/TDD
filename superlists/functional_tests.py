@@ -36,6 +36,8 @@ class NewVisitorTest(unittest.TestCase):
 	# 1) buy peacock feathers as an item on the to-do list
         inputbox.send_keys(Keys.ENTER)
 
+        import time
+        time.sleep(10) 
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
         self.assertTrue(
