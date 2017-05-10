@@ -1,0 +1,4 @@
+1494434860888	geckodriver	INFO	Listening on 127.0.0.1:43641
+1494434861987	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1494434866248	Marionette	INFO	Listening on port 40563
+1494434866348	Marionette	WARN	TLS certificate errors will be ignored for this session
