@@ -13,8 +13,10 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Item',
             fields=[
+
                 ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
                 ('text', models.TextField(default='')),
+
             ],
         ),
     ]
